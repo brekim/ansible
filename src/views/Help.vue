@@ -3,7 +3,8 @@
     <h1>Help Page</h1>
     <ol>
       <li>
-        The test you just took provides you with a political compass quadrant and score.
+        The test you just took provides you with a political compass quadrant
+        and score.
       </li>
       <ul>
         <li>Authoritarian</li>
@@ -24,7 +25,8 @@
         </ul>
       </ul>
       <li>
-        With your quadrant selected, you are able to match with people with different quadrants.
+        With your quadrant selected, you are able to match with people with
+        different quadrants.
       </li>
       <li>
         During a conversation, we have special features to streamline
@@ -32,9 +34,9 @@
       </li>
       <ul>
         <li>
-          Introducing the Icebreaker - You can either begin a conversation 
-          with a topic you’d like to discuss or click the Icebreaker button 
-          to suggest a controversial and debatable topic. This helps more 
+          Introducing the Icebreaker - You can either begin a conversation with
+          a topic you’d like to discuss or click the Icebreaker button to
+          suggest a controversial and debatable topic. This helps more
           introverted individuals get engaged earlier and sparks a constructive
           conversation.
         </li>
@@ -45,14 +47,14 @@
 
 <style scoped lang="css">
 * {
-  font-family: 'Source Sans Pro', Arial, sans-serif;
+  font-family: "Source Sans Pro", Arial, sans-serif;
 }
 ol {
-    text-align: left;
-    font-size: 1.4em;
+  text-align: left;
+  font-size: 1.4em;
 }
 h1 {
-    font-size: 3.0em;
-    font-weight: 600;
+  font-size: 3em;
+  font-weight: 600;
 }
 </style>

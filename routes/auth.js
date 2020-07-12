@@ -1,20 +1,18 @@
 // var mongoose = require("mongoose");
-var passport = require("passport");
-var settings = require("../config/settings");
+import passport, { authenticate } from "passport";
+import { secret } from "../config/settings";
 require("../config/passport")(passport);
-var express = require("express");
-var jwt = require("jsonwebtoken");
-var router = express.Router();
-var User = require("../models/user");
-var bcrypt = require("bcrypt");
-const { uuid } = require("uuidv4");
-const { BIconConeStriped } = require("bootstrap-vue");
+import { Router } from "express";
+import jwt, { sign } from "jsonwebtoken";
+var router = Router();
+import User, { findOneAndUpdate } from "../models/user";
+import { hash } from "bcrypt";
 
 router.post("/register", async (req, res) => {
   const { username, password } = req.body;
   const hashCost = 10;
   try {
-    const passwordHash = await bcrypt.hash(password, hashCost);
+    const passwordHash = await hash(password, hashCost);
     const userDocument = new User({
       username: username,
       passwordHash: passwordHash,
@@ -38,7 +36,7 @@ router.post("/register", async (req, res) => {
 });
 
 router.post("/login", (req, res) => {
-  passport.authenticate("local", { session: false }, (error, user) => {
+  authenticate("local", { session: false }, (error, user) => {
     if (error || !user) {
       res.status(400).json({ error: "Username may be incorrect." });
     }
@@ -56,7 +54,7 @@ router.post("/login", (req, res) => {
       }
 
       /** generate a signed json web token and return it in the response */
-      const token = jwt.sign(JSON.stringify(payload), settings.secret);
+      const token = sign(JSON.stringify(payload), secret);
 
       /** assign our jwt to the cookie */
       res.cookie("jwt", jwt, { httpOnly: true, secure: true });
@@ -74,7 +72,7 @@ router.post("/quiz", async (req, res) => {
       quadrant: req.body.quadrant
     };
 
-    await User.findOneAndUpdate(filter, update);
+    await findOneAndUpdate(filter, update);
 
     res.status(200).json({ message: "Success!" });
   } catch (error) {
@@ -147,7 +145,7 @@ router.post("/quiz", async (req, res) => {
 
 router.get(
   "/protected",
-  passport.authenticate("jwt", { session: false }),
+  authenticate("jwt", { session: false }),
   (req, res) => {
     const { user } = req;
 
@@ -155,4 +153,4 @@ router.get(
   }
 );
 
-module.exports = router;
+export default router;

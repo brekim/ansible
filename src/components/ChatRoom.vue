@@ -89,7 +89,7 @@ export default {
     };
   },
   created() {
-    console.log(this.$route.params.nickname)
+    console.log(this.$route.params.nickname);
     axios
       .get(`http://localhost:3000/api/chat/` + this.$route.params.id)
       .then(response => {

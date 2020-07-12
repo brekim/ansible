@@ -18,17 +18,36 @@
     <div id="cols">
       <div>
         <h1>Diversity</h1>
-        <p>Ansible strives to be a social media platform that emphasizes diversity as one of its core tenants. Our matching algorithm will ensure you have conversations with people politically different from you after you register and take our quiz. Experience a variety of viewpoints through civil discussion customized to fit your interests.</p>
+        <p>
+          Ansible strives to be a social media platform that emphasizes
+          diversity as one of its core tenants. Our matching algorithm will
+          ensure you have conversations with people politically different from
+          you after you register and take our quiz. Experience a variety of
+          viewpoints through civil discussion customized to fit your interests.
+        </p>
       </div>
 
       <div>
         <h1>Learning</h1>
-        <p>Our political compass quiz is a break from the linear political spectrum discussed in most American-centric politics. We graph your political standings on two axis, on your social and economic beliefs and give you a quadrant. This provides a lot of opportunities to address your viewpoint and learn which other sides to learn from as well.</p>
+        <p>
+          Our political compass quiz is a break from the linear political
+          spectrum discussed in most American-centric politics. We graph your
+          political standings on two axis, on your social and economic beliefs
+          and give you a quadrant. This provides a lot of opportunities to
+          address your viewpoint and learn which other sides to learn from as
+          well.
+        </p>
       </div>
 
       <div>
         <h1>Everyone</h1>
-        <p>Ansible is both free and accessible to anyone engaging in civil discourse. We aimed to make the quiz simple to understand, yet nuanced enough to capture people’s political beliefs. For newcomers to the political compass, click on the Help tab to understand your results. We look forward to seeing you on the app!</p>
+        <p>
+          Ansible is both free and accessible to anyone engaging in civil
+          discourse. We aimed to make the quiz simple to understand, yet nuanced
+          enough to capture people’s political beliefs. For newcomers to the
+          political compass, click on the Help tab to understand your results.
+          We look forward to seeing you on the app!
+        </p>
       </div>
     </div>
   </div>
