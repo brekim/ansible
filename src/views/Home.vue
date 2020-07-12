@@ -8,8 +8,10 @@
       class="d-inline-block align-top"
       alt="Ansible"
     />
-    <h2 style="padding-top: 20px">Insert Motto. Insert Tagline.</h2>
+    <h2 style="padding-top: 20px; padding-bottom: 40px">The partisan-free social network</h2>
+
     <button onClick="register">Register an Account></button>
+    <br>
     <button onClick="aboutUs">About the Developers></button>
   </div>
 </template>
@@ -39,7 +41,7 @@
 export default {
   methods: {
     register (){
-
+    
     }
     aboutUs (){
 
