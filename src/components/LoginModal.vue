@@ -97,6 +97,7 @@ export default {
           this.$nextTick(() => {
             this.show_form = true;
           });
+          this.$emit("user-event", true);
           this.$router.push("/dashboard");
         })
         .catch(e => {

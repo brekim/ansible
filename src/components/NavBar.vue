@@ -20,20 +20,47 @@
         <b-nav-form>
           <b-button
             variant="outline-success"
+            v-if="loggedIn"
+            @click="clearLocalStorage"
+            >Logout</b-button
+          >
+          <b-button
+            variant="outline-success"
             @click="$bvModal.show('login-modal')"
+            v-else
             >Login</b-button
           >
         </b-nav-form>
       </b-navbar-nav>
     </b-navbar>
-    <LoginModal />
+    <LoginModal v-on:user-event="setUserLogin" />
   </div>
 </template>
 
 <script>
 import LoginModal from "./LoginModal.vue";
 export default {
+  data: function() {
+    return {
+      loggedIn: false
+    };
+  },
   name: "NavBar",
+  methods: {
+    setUserLogin: function(value) {
+      this.loggedIn = value;
+    },
+    clearLocalStorage: function() {
+      localStorage.removeItem("jwtToken");
+      this.loggedIn = false;
+      this.$router.push("/");
+    }
+  },
+  mounted() {
+    if (localStorage.jwtToken) {
+      this.loggedIn = true;
+    }
+  },
   components: {
     LoginModal
   }

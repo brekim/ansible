@@ -8,7 +8,7 @@
     </div>
 
     <p>
-    We are a group of high school software developers based in San Diego, CA.      robotics was how we met each other, engaging conversation and open
+    We are a group of high school software developers based in San Diego, CA. While robotics was how we met each other, engaging conversation and open
       discourse brought us together.
 
       <br /><br />

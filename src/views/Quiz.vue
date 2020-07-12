@@ -13,7 +13,7 @@
       >
         <div class="box-question">
           <h2>Question {{ endIndex }}/{{ questions.length }}</h2>
-          <p>{{ element.question }}</p>
+          <h3>{{ element.question }}</h3>
         </div>
 
         <div class="box-suggestions">
@@ -69,7 +69,7 @@ export default {
       questions: [
         {
           question:
-            "Freedom of big business is the best practical way a society can prosper.",
+            "Freedom of business is the best practical way a society can prosper.",
           suggestions: [
             { suggestion: "Strongly agree", stat: 1 },
             { suggestion: "Slightly agree", stat: 2 },
@@ -157,7 +157,7 @@ export default {
         },
         {
           question:
-            "The government should morally be allowed to spy on its citizens in the name of safety.",
+            "A government should focus on domestic markets versus foreign trade first.",
           suggestions: [
             { suggestion: "Strongly agree", stat: 5 },
             { suggestion: "Slightly agree", stat: 6 },
@@ -208,13 +208,13 @@ export default {
             this.quiz = false;
 
             if(this.economic <= 0 && this.authlib <= 0) {
-              this.quadrant = "LibLeft";
+              this.quadrant = "libleft";
             } else if(this.economic >= 0 && this.authlib <= 0) {
-              this.quadrant = "LibRight";
+              this.quadrant = "libright";
             } else if(this.economic <= 0 && this.authlib >= 0) {
-              this.quadrant = "AuthLeft";
+              this.quadrant = "authleft";
             } else {
-              this.quadrant = "AuthRight";
+              this.quadrant = "authright";
             }
           } else {
             this.beginIndex++;
@@ -229,6 +229,16 @@ export default {
             this.score_show = true;
             this.select = false;
             this.quiz = false;
+
+            if(this.economic <= 0 && this.authlib <= 0) {
+              this.quadrant = "libleft";
+            } else if(this.economic >= 0 && this.authlib <= 0) {
+              this.quadrant = "libright";
+            } else if(this.economic <= 0 && this.authlib >= 0) {
+              this.quadrant = "authleft";
+            } else {
+              this.quadrant = "authright";
+            }
           } else {
             this.beginIndex++;
             this.endIndex++;
@@ -242,6 +252,16 @@ export default {
             this.score_show = true;
             this.select = false;
             this.quiz = false;
+
+            if(this.economic <= 0 && this.authlib <= 0) {
+              this.quadrant = "libleft";
+            } else if(this.economic >= 0 && this.authlib <= 0) {
+              this.quadrant = "libright";
+            } else if(this.economic <= 0 && this.authlib >= 0) {
+              this.quadrant = "authleft";
+            } else {
+              this.quadrant = "authright";
+            }
           } else {
             this.beginIndex++;
             this.endIndex++;
@@ -255,6 +275,16 @@ export default {
             this.score_show = true;
             this.select = false;
             this.quiz = false;
+
+            if(this.economic <= 0 && this.authlib <= 0) {
+              this.quadrant = "libleft";
+            } else if(this.economic >= 0 && this.authlib <= 0) {
+              this.quadrant = "libright";
+            } else if(this.economic <= 0 && this.authlib >= 0) {
+              this.quadrant = "authleft";
+            } else {
+              this.quadrant = "authright";
+            }
           } else {
             this.beginIndex++;
             this.endIndex++;
@@ -268,6 +298,16 @@ export default {
             this.score_show = true;
             this.select = false;
             this.quiz = false;
+
+            if(this.economic <= 0 && this.authlib <= 0) {
+              this.quadrant = "libleft";
+            } else if(this.economic >= 0 && this.authlib <= 0) {
+              this.quadrant = "libright";
+            } else if(this.economic <= 0 && this.authlib >= 0) {
+              this.quadrant = "authleft";
+            } else {
+              this.quadrant = "authright";
+            }
           } else {
             this.beginIndex++;
             this.endIndex++;
@@ -281,6 +321,16 @@ export default {
             this.score_show = true;
             this.select = false;
             this.quiz = false;
+
+            if(this.economic <= 0 && this.authlib <= 0) {
+              this.quadrant = "libleft";
+            } else if(this.economic >= 0 && this.authlib <= 0) {
+              this.quadrant = "libright";
+            } else if(this.economic <= 0 && this.authlib >= 0) {
+              this.quadrant = "authleft";
+            } else {
+              this.quadrant = "authright";
+            }
           } else {
             this.beginIndex++;
             this.endIndex++;
@@ -294,6 +344,16 @@ export default {
             this.score_show = true;
             this.select = false;
             this.quiz = false;
+
+            if(this.economic <= 0 && this.authlib <= 0) {
+              this.quadrant = "libleft";
+            } else if(this.economic >= 0 && this.authlib <= 0) {
+              this.quadrant = "libright";
+            } else if(this.economic <= 0 && this.authlib >= 0) {
+              this.quadrant = "authleft";
+            } else {
+              this.quadrant = "authright";
+            }
           } else {
             this.beginIndex++;
             this.endIndex++;
@@ -307,6 +367,16 @@ export default {
             this.score_show = true;
             this.select = false;
             this.quiz = false;
+
+            if(this.economic <= 0 && this.authlib <= 0) {
+              this.quadrant = "libleft";
+            } else if(this.economic >= 0 && this.authlib <= 0) {
+              this.quadrant = "libright";
+            } else if(this.economic <= 0 && this.authlib >= 0) {
+              this.quadrant = "authleft";
+            } else {
+              this.quadrant = "authright";
+            }
           } else {
             this.beginIndex++;
             this.endIndex++;
@@ -324,6 +394,7 @@ export default {
   font-family: "Source Sans Pro", Arial, sans-serif;
   margin: 0;
 }
+
 #app {
   text-align: center;
   color: black;
@@ -398,6 +469,7 @@ li {
   border: 1px solid #020202;
   margin-bottom: 20px;
   border-radius: 15px;
+  font-size: 1.6em;
   cursor: pointer;
 }
 li:hover {
@@ -468,5 +540,45 @@ li > div {
     box-shadow: 0 3px 15px rgba(0, 0, 0, 0.15);
     border-radius: 20px;
   }
+}
+
+.libleft {
+  height: 127px;
+  width: 127px;
+  background: url('../assets/libleft.png') no-repeat;
+  margin: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.libright {
+  height: 127px;
+  width: 127px;
+  background: url('../assets/libright.png') no-repeat;
+  margin: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.authleft {
+  height: 127px;
+  width: 127px;
+  background: url('../assets/authleft.png') no-repeat;
+  margin: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.authright {
+  height: 127px;
+  width: 127px;
+  background: url('../assets/authright.png') no-repeat;
+  margin: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+h1 {
+  font-weight: 600;
 }
 </style>
