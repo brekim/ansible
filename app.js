@@ -3,6 +3,7 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
+var cors = require('cors');
 
 var book = require('./routes/book');
 var app = express();
@@ -11,6 +12,7 @@ mongoose.Promise = require('bluebird');
 mongoose.connect('mongodb://localhost/mevn-secure', { promiseLibrary: require('bluebird') })
   .then(() =>  console.log('connection successful'))
   .catch((err) => console.error(err));
+app.use(cors())
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({'extended':'false'}));
@@ -23,7 +25,6 @@ app.use('/api/auth', auth);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  console.log("made it to 404")
   var err = new Error('Not Found');
   err.status = 404;
   next(err);

@@ -1,6 +1,6 @@
 <template>
     <div>
-<h1>JHelp PaHelp Page</h1>
+<h1>Help Page</h1>
         <ol class="a"> The test you just took provides you with a political compass quadrant and score. </ol>
         <ol class="b"> <li style="margin-left:2em">Authoritarian</li>
             <li style="margin-left:2em; padding-bottom: 0;">Libertarian</li>

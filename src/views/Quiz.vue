@@ -19,8 +19,11 @@
           </div>
 
           <div class="box-score" v-if="score_show">
-              <h2>Economic:</h2>
+              <h2>Economic Scale:</h2>
               <h2>{{economic}}</h2>
+
+              <h2>Auth/Lib Scale:</h2>
+              <h2>{{authlib}}</h2>
               
               <div class="btn-retake">
                   <button @click="restartQuiz">
@@ -46,7 +49,7 @@ export default {
       return {
           questions: [
             {
-                question: 'Freedom of big business is the best practical way a society can prosper', suggestions: [
+                question: 'Freedom of big business is the best practical way a society can prosper.', suggestions: [
                     {suggestion: 'Strongly agree', stat:1},
                     {suggestion: 'Slightly agree', stat:2},
                     {suggestion: 'Slightly disagree', stat:3},
@@ -56,37 +59,82 @@ export default {
 
             {
                 question: 'The current welfare system should be expanded to further combat inequality.', suggestions: [
-                    {suggestion: 'Strongly agree'},
-                    {suggestion: 'Slightly agree'},
-                    {suggestion: 'Slightly disagree'},
-                    {suggestion: 'Strongly disagree', correct:true},
+                    {suggestion: 'Strongly agree', stat:4},
+                    {suggestion: 'Slightly agree', stat:3},
+                    {suggestion: 'Slightly disagree', stat:2},
+                    {suggestion: 'Strongly disagree', stat:1},
                 ]
             },
 
             {
                 question: 'A government that provides for everyone is an inherently good idea.', suggestions: [
-                    {suggestion: 'Strongly agree'},
-                    {suggestion: 'Slightly agree'},
-                    {suggestion: 'Slightly disagree'},
-                    {suggestion: 'Strongly disagree', correct:true},
+                    {suggestion: 'Strongly agree', stat:4},
+                    {suggestion: 'Slightly agree', stat:3},
+                    {suggestion: 'Slightly disagree', stat:2},
+                    {suggestion: 'Strongly disagree', stat:1},
                 ]
             },
 
             {
-                question: 'The harder you work, the more you progress up the social ladder.', suggestions: [
-                    {suggestion: 'Strongly agree'},
-                    {suggestion: 'Slightly agree'},
-                    {suggestion: 'Slightly disagree'},
-                    {suggestion: 'Strongly disagree', correct:true},
+                question: 'The harder you work, the more you progress up the socioeconomic ladder.', suggestions: [
+                    {suggestion: 'Strongly agree', stat:1},
+                    {suggestion: 'Slightly agree', stat:2},
+                    {suggestion: 'Slightly disagree', stat:3},
+                    {suggestion: 'Strongly disagree', stat:4},
                 ]
             },
 
             {
-                question: 'Class is the primary division of society.', suggestions: [
-                    {suggestion: 'Strongly agree'},
-                    {suggestion: 'Slightly agree'},
-                    {suggestion: 'Slightly disagree'},
-                    {suggestion: 'Strongly disagree', correct:true},
+                question: 'Class is the biggest divider of society.', suggestions: [
+                    {suggestion: 'Strongly agree', stat:4},
+                    {suggestion: 'Slightly agree', stat:3},
+                    {suggestion: 'Slightly disagree', stat:2},
+                    {suggestion: 'Strongly disagree', stat:1},
+                ]
+            },
+
+            {
+                question: 'In times of crisis, safety becomes more important than civil liberties.', suggestions: [
+                    {suggestion: 'Strongly agree', stat:5},
+                    {suggestion: 'Slightly agree', stat:6},
+                    {suggestion: 'Slightly disagree', stat:7},
+                    {suggestion: 'Strongly disagree', stat:8},
+                ]
+            },
+
+            {
+                question: 'The smaller the government, the freer the people.', suggestions: [
+                    {suggestion: 'Strongly agree', stat:8},
+                    {suggestion: 'Slightly agree', stat:7},
+                    {suggestion: 'Slightly disagree', stat:6},
+                    {suggestion: 'Strongly disagree', stat:5},
+                ]
+            },
+
+            {
+                question: 'The government should be less involved in the day to day life of its citizens.', suggestions: [
+                    {suggestion: 'Strongly agree', stat:8},
+                    {suggestion: 'Slightly agree', stat:7},
+                    {suggestion: 'Slightly disagree', stat:6},
+                    {suggestion: 'Strongly disagree', stat:5},
+                ]
+            },
+
+            {
+                question: 'Only the government can fairly and effectively regulate organizations.', suggestions: [
+                    {suggestion: 'Strongly agree', stat:5},
+                    {suggestion: 'Slightly agree', stat:6},
+                    {suggestion: 'Slightly disagree', stat:7},
+                    {suggestion: 'Strongly disagree', stat:8},
+                ]
+            },
+
+            {
+                question: 'The government should morally be allowed to spy on its citizens in the name of safety.', suggestions: [
+                    {suggestion: 'Strongly agree', stat:5},
+                    {suggestion: 'Slightly agree', stat:6},
+                    {suggestion: 'Slightly disagree', stat:7},
+                    {suggestion: 'Strongly disagree', stat:8},
                 ]
             },
           ],
@@ -95,6 +143,7 @@ export default {
           endIndex: 1,
           select: false,
           economic: 0,
+          authlib: 0,
           quiz: true,
           score_show: false,
           next: false,
@@ -122,6 +171,22 @@ export default {
               case 4:
                   this.economic -= 2;
                   console.log(this.economic);
+                  break;
+              case 5:
+                  this.authlib += 2;
+                  console.log(this.authlib);
+                  break;
+              case 6:
+                  this.authlib += 1;
+                  console.log(this.authlib);
+                  break;
+              case 7:
+                  this.authlib -= 1;
+                  console.log(this.authlib);
+                  break;
+              case 8:
+                  this.authlib -= 2;
+                  console.log(this.authlib);
                   break;
           }
       },
