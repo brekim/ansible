@@ -17,7 +17,7 @@
       discussions growing increasingly replaced by confrontational rallies
       attempting to vilify people with different beliefs. Social media plays a
       large role by allowing people the opportunity to attack people for likes
-      in()stead of truly converse.
+      instead of truly converse.
 
       <br /><br />
 

@@ -206,6 +206,16 @@ export default {
             this.score_show = true;
             this.select = false;
             this.quiz = false;
+
+            if(this.economic <= 0 && this.authlib <= 0) {
+              this.quadrant = "LibLeft";
+            } else if(this.economic >= 0 && this.authlib <= 0) {
+              this.quadrant = "LibRight";
+            } else if(this.economic <= 0 && this.authlib >= 0) {
+              this.quadrant = "AuthLeft";
+            } else {
+              this.quadrant = "AuthRight";
+            }
           } else {
             this.beginIndex++;
             this.endIndex++;

@@ -10,9 +10,9 @@
     />
     <h2 style="padding-top: 20px; padding-bottom: 40px">The partisan-free social network</h2>
 
-    <button onClick="register">Register an Account></button>
+    <button onClick="register">Register an Account</button>
     <br>
-    <button onClick="aboutUs">About the Developers></button>
+    <button onClick="aboutUs">About the Devs</button>
   </div>
 </template>
 
@@ -33,6 +33,18 @@
     to {
       transform: rotate(359deg);
     }
+  }
+
+  button {
+    font-weight: 600;
+    box-sizing: border-box;
+    border-color: #7137C8;
+    color: white;
+    background-color: #7137C8;
+    border-radius: 0.5em;
+    cursor: pointer;
+    margin: 10px;
+    padding: 1% 1%;
   }
 </style>
 
