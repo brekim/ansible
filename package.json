@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "start": "vue-cli-service build && node ./bin/www.js"
+    "start": "vue-cli-service serve && node ./bin/www.js"
   },
   "dependencies": {
     "axios": "^0.19.2",
