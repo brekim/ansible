@@ -89,15 +89,16 @@ export default {
         })
         .then(response => {
           localStorage.setItem("jwtToken", response.data.token);
+          localStorage.setItem("username", response.data.username);
           this.$bvModal.hide("login-modal");
           this.form.username = "";
           this.form.password = "";
           this.form.checked = [];
-          this.show_form = true;
+          this.show_form = false;
           this.$nextTick(() => {
             this.show_form = true;
           });
-          this.$emit("user-event", true);
+          this.$emit("user-event", true, response.data.username);
           this.$router.push("/dashboard");
         })
         .catch(e => {
@@ -108,14 +109,19 @@ export default {
     cancel(evt) {
       evt.preventDefault();
       this.$bvModal.hide("login-modal");
+    }
+  },
+  mounted() {
+    this.$root.$on("bv::modal::hide", () => {
+      this.errors = [];
       this.form.username = "";
       this.form.password = "";
       this.form.checked = [];
-      this.show_form = true;
+      this.show_form = false;
       this.$nextTick(() => {
         this.show_form = true;
       });
-    }
+    });
   }
 };
 </script>

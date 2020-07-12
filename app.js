@@ -22,6 +22,9 @@ app.use(express.static(path.join(__dirname, "dist")));
 var auth = require("./routes/auth");
 app.use("/api/auth", auth);
 
+var chat = require("./routes/chat");
+app.use("/api/chat", chat);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error("Not Found");

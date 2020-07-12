@@ -8,10 +8,8 @@ const Dashboard = () => import("../views/Dashboard.vue");
 const Help = () => import("../views/Help.vue");
 const Quiz = () => import("../views/Quiz.vue");
 const Register = () => import("../views/Register.vue");
-const Chat = () => import("../views/Chat.vue");
 const ChatRoom = () => import("../components/ChatRoom.vue");
-const AddRoom = () => import("../components/AddRoom.vue");
-const JoinRoom = () => import("../components/JoinRoom.vue");
+const LoadingScreen = () => import("../components/LoadingScreen.vue");
 Vue.use(VueRouter);
 
 const routes = [
@@ -52,26 +50,14 @@ const routes = [
     component: Register
   },
   {
-    path: "/chat/:userid",
-    name: "Chat",
-    component: Chat,
-    children: [
-      {
-        path: "add-room",
-        name: "AddRoom",
-        component: AddRoom
-      },
-      {
-        path: "join-room",
-        name: "JoinRoom",
-        component: JoinRoom
-      },
-      {
-        path: "chat-room/:roomid",
-        name: "ChatRoom",
-        component: ChatRoom
-      },
-    ]
+    path: "/loading/:username",
+    name: "LoadingScreen",
+    component: LoadingScreen
+  },
+  {
+    path: "/chat/:id/:nickname",
+    name: "ChatRoom",
+    component: ChatRoom
   }
 ];
 

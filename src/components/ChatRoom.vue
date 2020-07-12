@@ -54,11 +54,6 @@
           </div>
         </b-list-group-item>
       </b-list-group>
-      <ul v-if="errors && errors.length">
-        <li v-for="error of errors" v-bind:key="error">
-          {{ error.message }}
-        </li>
-      </ul>
       <b-form @submit="onSubmit" class="chat-form">
         <b-input-group prepend="Message">
           <b-form-input
@@ -94,6 +89,7 @@ export default {
     };
   },
   created() {
+    console.log(this.$route.params.nickname)
     axios
       .get(`http://localhost:3000/api/chat/` + this.$route.params.id)
       .then(response => {
@@ -117,11 +113,11 @@ export default {
       this.socket.emit("save-message", {
         room: this.chat.room,
         nickname: this.chat.nickname,
-        message: this.chat.nickname + " left this room",
+        message: this.chat.nickname + " has left the room.",
         created_date: new Date()
       });
       this.$router.push({
-        name: "RoomList"
+        path: "/dashboard"
       });
     },
     onSubmit(evt) {

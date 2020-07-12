@@ -1,8 +1,7 @@
-var mongoose = require("mongoose"),
-  Schema = mongoose.Schema;
+var mongoose = require("mongoose");
 
 var ChatSchema = new mongoose.Schema({
-  room: { type: Schema.Types.ObjectId, ref: "Room" },
+  room: { type: String, ref: "Room" },
   nickname: String,
   message: String,
   created_date: { type: Date, default: Date.now }

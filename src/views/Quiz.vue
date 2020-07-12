@@ -1,5 +1,10 @@
 <template>
   <div class="container-app">
+    <div v-if="errors && errors.length">
+      <div v-for="error of errors" v-bind:key="error">
+        <b-alert show>{{ error.message }}</b-alert>
+      </div>
+    </div>
     <div class="container-quiz">
       <div class="quiz-header">
         <h1>Political Compass Test</h1>
@@ -46,6 +51,12 @@
             Retake
           </button>
         </div>
+
+        <div class="btn-save">
+          <button @click="submitResults">
+            Save Results
+          </button>
+        </div>
       </div>
 
       <div class="quiz-footer" v-show="quiz">
@@ -63,6 +74,7 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "quiz",
   data() {
@@ -173,7 +185,8 @@ export default {
       economic: 0,
       authlib: 0,
       quiz: true,
-      score_show: false
+      score_show: false,
+      errors: []
     };
   },
   methods: {
@@ -194,9 +207,35 @@ export default {
       Object.assign(this.$data, this.$options.data());
     },
 
+    submitResults() {
+      // localStorage.economic = this.economic;
+      // localStorage.authlib = this.authlib;
+      // localStorage.quadrant = this.quadrant;
+      if (localStorage.username) {
+        axios
+          .post(`http://localhost:3000/api/auth/quiz`, {
+            username: localStorage.username,
+            economic: this.economic,
+            authlib: this.authlib,
+            quadrant: this.quadrant
+          })
+          .then(response => {
+            console.log(response);
+            this.$router.push({ path: "/dashboard" });
+          })
+          .catch(e => {
+            console.log(e);
+          });
+      } else {
+        this.errors.push({
+          message: "Please login or register to save your quiz data."
+        });
+      }
+    },
+
     /*
-    * This switch statement can be cut down, but due to time ended up picking the messier solution
-    */
+     * This switch statement can be cut down, but due to time ended up picking the messier solution
+     */
     selectResponse(item) {
       this.select = true;
       switch (item.stat) {
@@ -208,11 +247,11 @@ export default {
             this.select = false;
             this.quiz = false;
 
-            if(this.economic <= 0 && this.authlib <= 0) {
+            if (this.economic <= 0 && this.authlib <= 0) {
               this.quadrant = "libleft";
-            } else if(this.economic >= 0 && this.authlib <= 0) {
+            } else if (this.economic >= 0 && this.authlib <= 0) {
               this.quadrant = "libright";
-            } else if(this.economic <= 0 && this.authlib >= 0) {
+            } else if (this.economic <= 0 && this.authlib >= 0) {
               this.quadrant = "authleft";
             } else {
               this.quadrant = "authright";
@@ -231,11 +270,11 @@ export default {
             this.select = false;
             this.quiz = false;
 
-            if(this.economic <= 0 && this.authlib <= 0) {
+            if (this.economic <= 0 && this.authlib <= 0) {
               this.quadrant = "libleft";
-            } else if(this.economic >= 0 && this.authlib <= 0) {
+            } else if (this.economic >= 0 && this.authlib <= 0) {
               this.quadrant = "libright";
-            } else if(this.economic <= 0 && this.authlib >= 0) {
+            } else if (this.economic <= 0 && this.authlib >= 0) {
               this.quadrant = "authleft";
             } else {
               this.quadrant = "authright";
@@ -254,11 +293,11 @@ export default {
             this.select = false;
             this.quiz = false;
 
-            if(this.economic <= 0 && this.authlib <= 0) {
+            if (this.economic <= 0 && this.authlib <= 0) {
               this.quadrant = "libleft";
-            } else if(this.economic >= 0 && this.authlib <= 0) {
+            } else if (this.economic >= 0 && this.authlib <= 0) {
               this.quadrant = "libright";
-            } else if(this.economic <= 0 && this.authlib >= 0) {
+            } else if (this.economic <= 0 && this.authlib >= 0) {
               this.quadrant = "authleft";
             } else {
               this.quadrant = "authright";
@@ -277,11 +316,11 @@ export default {
             this.select = false;
             this.quiz = false;
 
-            if(this.economic <= 0 && this.authlib <= 0) {
+            if (this.economic <= 0 && this.authlib <= 0) {
               this.quadrant = "libleft";
-            } else if(this.economic >= 0 && this.authlib <= 0) {
+            } else if (this.economic >= 0 && this.authlib <= 0) {
               this.quadrant = "libright";
-            } else if(this.economic <= 0 && this.authlib >= 0) {
+            } else if (this.economic <= 0 && this.authlib >= 0) {
               this.quadrant = "authleft";
             } else {
               this.quadrant = "authright";
@@ -300,11 +339,11 @@ export default {
             this.select = false;
             this.quiz = false;
 
-            if(this.economic <= 0 && this.authlib <= 0) {
+            if (this.economic <= 0 && this.authlib <= 0) {
               this.quadrant = "libleft";
-            } else if(this.economic >= 0 && this.authlib <= 0) {
+            } else if (this.economic >= 0 && this.authlib <= 0) {
               this.quadrant = "libright";
-            } else if(this.economic <= 0 && this.authlib >= 0) {
+            } else if (this.economic <= 0 && this.authlib >= 0) {
               this.quadrant = "authleft";
             } else {
               this.quadrant = "authright";
@@ -323,11 +362,11 @@ export default {
             this.select = false;
             this.quiz = false;
 
-            if(this.economic <= 0 && this.authlib <= 0) {
+            if (this.economic <= 0 && this.authlib <= 0) {
               this.quadrant = "libleft";
-            } else if(this.economic >= 0 && this.authlib <= 0) {
+            } else if (this.economic >= 0 && this.authlib <= 0) {
               this.quadrant = "libright";
-            } else if(this.economic <= 0 && this.authlib >= 0) {
+            } else if (this.economic <= 0 && this.authlib >= 0) {
               this.quadrant = "authleft";
             } else {
               this.quadrant = "authright";
@@ -346,11 +385,11 @@ export default {
             this.select = false;
             this.quiz = false;
 
-            if(this.economic <= 0 && this.authlib <= 0) {
+            if (this.economic <= 0 && this.authlib <= 0) {
               this.quadrant = "libleft";
-            } else if(this.economic >= 0 && this.authlib <= 0) {
+            } else if (this.economic >= 0 && this.authlib <= 0) {
               this.quadrant = "libright";
-            } else if(this.economic <= 0 && this.authlib >= 0) {
+            } else if (this.economic <= 0 && this.authlib >= 0) {
               this.quadrant = "authleft";
             } else {
               this.quadrant = "authright";
@@ -369,11 +408,11 @@ export default {
             this.select = false;
             this.quiz = false;
 
-            if(this.economic <= 0 && this.authlib <= 0) {
+            if (this.economic <= 0 && this.authlib <= 0) {
               this.quadrant = "libleft";
-            } else if(this.economic >= 0 && this.authlib <= 0) {
+            } else if (this.economic >= 0 && this.authlib <= 0) {
               this.quadrant = "libright";
-            } else if(this.economic <= 0 && this.authlib >= 0) {
+            } else if (this.economic <= 0 && this.authlib >= 0) {
               this.quadrant = "authleft";
             } else {
               this.quadrant = "authright";
@@ -387,7 +426,7 @@ export default {
       }
     }
   }
-}
+};
 </script>
 
 <style scoped>
@@ -521,6 +560,25 @@ li:hover {
   margin: auto;
   background-color: coral;
 }
+.btn-save {
+  display: flex;
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  margin-top: 50px;
+}
+.btn-save button {
+  width: 150px;
+  height: 35px;
+  outline: none;
+  border: 0;
+  color: turquoise;
+  font-size: 1.2em;
+  cursor: pointer;
+  border-radius: 20px;
+  margin: auto;
+  background-color: coral;
+}
 li > div {
   float: right;
   margin-top: 7px;
@@ -546,16 +604,18 @@ li > div {
 .libleft {
   height: 127px;
   width: 127px;
-  background: url('../assets/libleft.png') no-repeat;
+  background: url("../assets/libleft.png") no-repeat;
   margin: auto;
   margin-top: 0;
   margin-bottom: 0;
+  display: inline-block;
+  position: fixed;
 }
 
 .libright {
   height: 127px;
   width: 127px;
-  background: url('../assets/libright.png') no-repeat;
+  background: url("../assets/libright.png") no-repeat;
   margin: auto;
   margin-top: 0;
   margin-bottom: 0;
@@ -564,7 +624,7 @@ li > div {
 .authleft {
   height: 127px;
   width: 127px;
-  background: url('../assets/authleft.png') no-repeat;
+  background: url("../assets/authleft.png") no-repeat;
   margin: auto;
   margin-top: 0;
   margin-bottom: 0;
@@ -573,7 +633,7 @@ li > div {
 .authright {
   height: 127px;
   width: 127px;
-  background: url('../assets/authright.png') no-repeat;
+  background: url("../assets/authright.png") no-repeat;
   margin: auto;
   margin-top: 0;
   margin-bottom: 0;
@@ -581,5 +641,16 @@ li > div {
 
 h1 {
   font-weight: 600;
+}
+
+/* H2 */
+.box-score h2 {
+  padding: 0;
+  margin: 0;
+}
+
+button {
+  padding: 0;
+  margin: 0;
 }
 </style>

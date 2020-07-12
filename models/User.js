@@ -13,7 +13,15 @@ const userSchema = new Schema({
     //salted and hashed using bcrypt
     type: String,
     required: true
-  }
+  },
+  authlib: Number,
+  economic: Number,
+  quadrant: String,
+  kudos: Number,
+  joined: Date,
+  online: Boolean,
+  available: Boolean,
+  connection: String
 });
 
 const User = mongoose.model("User", userSchema);
