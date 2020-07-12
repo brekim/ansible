@@ -13,7 +13,7 @@
       >
         <div class="box-question">
           <h2>Question {{ endIndex }}/{{ questions.length }}</h2>
-          <h3>{{ element.question }}</h3>
+          <h2>{{ element.question }}</h2>
         </div>
 
         <div class="box-suggestions">
@@ -39,6 +39,7 @@
 
         <h2>Quadrant:</h2>
         <div :class="quadrant"></div>
+        <h4 style="margin: 0">{{ quadrant }}</h4>
 
         <div class="btn-retake">
           <button @click="restartQuiz">
@@ -47,7 +48,7 @@
         </div>
       </div>
 
-      <div class="quiz-footer">
+      <div class="quiz-footer" v-show="quiz">
         <div class="box-button">
           <button @click="noOpinion">
             No Opinion

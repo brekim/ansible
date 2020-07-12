@@ -77,7 +77,8 @@ ol {
     text-align: left;
     font-size: 1.15em;
 }
-h1{
+h1 {
     font-size: 3.0em;
+    font-weight: 600;
 }
 </style>

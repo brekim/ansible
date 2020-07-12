@@ -14,7 +14,9 @@
         <b-nav-item to="/about" right>About</b-nav-item>
         <b-nav-item to="/help" right>Help</b-nav-item>
         <b-nav-item to="/quiz" right>Quiz</b-nav-item>
-        <b-nav-item to="/register" right>Register</b-nav-item>
+        <b-nav-item v-if="loggedIn" to="/dashboard" right>Dashboard</b-nav-item>
+        <b-nav-item v-if="loggedIn" right>Chat</b-nav-item>
+        <b-nav-item to="/register" right v-else>Register</b-nav-item>
       </b-navbar-nav>
       <b-navbar-nav class="ml-auto">
         <b-nav-form>
